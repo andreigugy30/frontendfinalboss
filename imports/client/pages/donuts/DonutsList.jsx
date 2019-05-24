@@ -1,6 +1,7 @@
 import React from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
 import {Donuts} from '/imports/db';
+import Navigation from '../navigation/nav';
 
 class DonutsList extends React.Component {
     constructor() {
@@ -30,6 +31,7 @@ class DonutsList extends React.Component {
 
         return (
             <div>
+                 <Navigation />
                 {
                     donuts.map(donut => {
                         return (

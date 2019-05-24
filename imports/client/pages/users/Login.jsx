@@ -1,6 +1,7 @@
 import React from 'react';
 import {AutoForm, AutoField, ErrorField} from 'uniforms-unstyled';
 import SimpleSchema from 'simpl-schema';
+import Navigation from '../navigation/nav';
 
 class Login extends React.Component {
     constructor() {
@@ -22,6 +23,8 @@ class Login extends React.Component {
     render() {
         return (
             <main className="cc-main">
+                <Navigation />
+                
                 <AutoForm schema={LoginSchema} onSubmit={this.onSubmit}>
                     <AutoField name="email"/>
                     <ErrorField name="email"/>

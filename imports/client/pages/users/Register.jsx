@@ -1,6 +1,7 @@
 import React from 'react';
 import {AutoForm, AutoField, ErrorField} from 'uniforms-unstyled';
 import SimpleSchema from 'simpl-schema';
+import Navigation from '../navigation/nav';
 
 class Register extends React.Component {
     constructor() {
@@ -27,6 +28,8 @@ class Register extends React.Component {
     render() {
         return (
             <main>
+                <Navigation />
+                
                 <AutoForm schema={RegisterSchema} onSubmit={this.onSubmit}>
                     <AutoField name="email"/>
                     <ErrorField name="email"/>
