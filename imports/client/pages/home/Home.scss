@@ -2,6 +2,11 @@
 $headerTitleColor: #fec342;
 $descTitleColor: #ffa241;
 
+@mixin font($size, $weight, $family) {
+    font-size: $size;
+    font-weight: $weight;
+    font-family: $family;
+}
 
 .button {
   background-color: #00bff3;
@@ -20,7 +25,6 @@ $descTitleColor: #ffa241;
 .header{
     position: relative;
     img {
-        background-image: url(/images/big-img.png); 
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -31,27 +35,22 @@ $descTitleColor: #ffa241;
     .header__info {
         position: absolute;
         top: 50%;
-        left: 25%;
-        transform: translate(-50%, -50%);
-    }
+        left: 10%;
+        // transform: translate(-50%, -50%);
 
-    .header__title {
-        color: $headerTitleColor;
-        font: {
-            size: 60px;
-            weight: 700;
-            family: Gadugi;
+        .header__title {
+            color: $headerTitleColor;
+            
+            @include font(60px, 700 , Gadugi )
         }
-    }
+    
+        .header__text {
+            color: #040100;
+          
+            @include font(24px, 700 , Gadugi );
 
-    .header__text {
-        color: #040100;
-        font: {
-            size: 24px;
-            weight: 700;
-            family: Gadugi;
+            margin-top: 26px;
         }
-        margin-top: 26px;
     }
 }
 
@@ -61,26 +60,98 @@ $descTitleColor: #ffa241;
     justify-content: space-around;
    
     .description__text {
-        // flex: 1;
         margin-top: 70px;
         width: 30%;
         h3 {
             color: $descTitleColor;
-            font: {
-                size: 36px;
-                weight: 700;
-                family: Gadugi;
-            }
+
+            @include font(36px, 700, Gadugi)
         }
 
         p {
             color: #31281a;
             margin-top: 65px;
             margin-bottom: 98px;
-            font: {
-                size: 24px;
-                weight: 700;
-                family: Gadugi;
+
+            @include font(24px, 700, Gadugi)
+        }
+    }
+}
+
+//Media queries
+
+@media screen and (max-width: 1200px) {
+    .header {
+        .header__info {
+            left: 2rem;
+
+            .header__title {
+                font: {
+                    size: 40px;
+                }
+            }
+        
+            .header__text {
+                font: {
+                    size: 24px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        .header__info {
+            .header__text {
+                display: none;
+            }
+        }
+    }
+}
+
+@media  screen and (max-width: 1200px){
+    .description {
+        .description__text {
+            
+            h3 {
+
+                @include font(30px, 700, Gadugi);
+
+            }
+    
+            p {
+
+                @include font(16px, 700, Gadugi);
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .description {
+        display: block;
+        background-color: #ebebeb;
+        .description__text {
+            margin-top: 0;
+            padding-top: 2rem;
+            width: 100%;
+            h3 {
+
+                @include font(26px, 700, Gadugi);
+                
+                margin-left: 1rem;
+                margin-right: 1rem;
+                text-align: center;
+            }
+    
+            p {
+
+                @include font(14px, 700, Gadugi);
+                
+                margin-bottom: 0;
+                padding: 0 1rem;
             }
         }
     }
