@@ -1,7 +1,7 @@
 import React from 'react';
 import {AutoForm, AutoField, ErrorField} from 'uniforms-unstyled';
 import SimpleSchema from 'simpl-schema';
-import Navigation from '../navigation/nav';
+import './Login.scss';
 
 class Register extends React.Component {
     constructor() {
@@ -28,22 +28,28 @@ class Register extends React.Component {
     render() {
         return (
             <main>
-                <Navigation />
                 
-                <AutoForm schema={RegisterSchema} onSubmit={this.onSubmit}>
-                    <AutoField name="email"/>
-                    <ErrorField name="email"/>
+                <div className="login__page">
+                    <AutoForm schema={RegisterSchema} onSubmit={this.onSubmit}>
 
-                    <AutoField name="password" type="password"/>
-                    <ErrorField name="password"/>
+                        <AutoField name="name" placeholder="Name"/>
+                        <ErrorField name="name"/>
+                        
+                        <AutoField name="email" placeholder="Email"/>
+                        <ErrorField name="email"/>
 
-                    <AutoField name="confirm_password" type="password"/>
-                    <ErrorField name="confirm_password"/>
+                        <AutoField name="password" type="password" placeholder="Password"/>
+                        <ErrorField name="password"/>
 
-                    <button type="submit">
-                        Register
-                    </button>
-                </AutoForm>
+                        <AutoField name="confirm_password" type="password" placeholder="Re-enter Password"/>
+                        <ErrorField name="confirm_password"/>
+
+                        <button className="sign-up__btn" type="submit">
+                            Sign up
+                        </button>
+                    </AutoForm>
+                </div>
+                
             </main>
         )
     }
@@ -55,6 +61,7 @@ const RegisterSchema = new SimpleSchema({
         regEx: SimpleSchema.RegEx.Email
     },
     password: {type: String},
+    name: {type: String},
     confirm_password: {
         type: String,
         custom() {

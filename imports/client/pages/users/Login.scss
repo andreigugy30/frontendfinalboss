@@ -9,11 +9,11 @@ body {
     justify-content: center;
 }
 
-.login__page{
+.login__page {
     margin-top: 50%;
     width: 410px;
     position: relative;
-
+   
     input {
         outline: 0;
         height: 63.25px;
@@ -24,6 +24,7 @@ body {
         padding: 0 0 0 30px;
         border-radius: 10px;
         font-size: 14px;
+        box-sizing: border-box;
 
         &::placeholder {
             color: #403f3f;
@@ -33,11 +34,12 @@ body {
 
     .login__page--recovery input {
         background-color: #8781bd;
-        
+         box-sizing: border-box;
         
         &::placeholder {
             color: #fff;
             font-size: 18px;
+            font-family: Gadugi;
         }
     }
 
@@ -54,8 +56,16 @@ body {
         text-decoration: none;
         position: absolute;
         bottom: 38px;
-        right: -30px;
+        right: 0;
         height: 63.25px;
         cursor: pointer;
+    }
+
+    .sign-up__btn {
+        position: relative;
+        padding: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
     }
 }
